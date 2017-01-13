@@ -22,8 +22,8 @@ def start(bot, update):
 
     update.message.reply_text(
         '안녕하세요,\n'
-        'SNUE알림봇을 추가해주셔서 감사합니다.\n'
-        'SNUE알림봇에는 여러 기능이 있습니다.\n'
+        'CREDIT_SNUE알림봇을 추가해주셔서 감사합니다.\n'
+        'CREDIT_SNUE알림봇에는 여러 기능이 있습니다.\n'
         '원하는 기능을 터치해 서비스를 받아보세요.\n'
         '{}\n'.format(option_list))
     update.message.reply_text('자세한 안내가 필요하시면 [/help]를 터치해주세요!')
@@ -53,7 +53,7 @@ def help(bot, update):
     else:
         update.message.reply_text(
             '현재 이용중이신 서비스가 없습니다.\n'
-            'SNUE봇의 여러 기능을 이용해보시는건 어떠신가요?'
+            'CREDIT_SNUE봇의 여러 기능을 이용해보시는건 어떠신가요?'
         )
 
     if unused_options.count() > 0:
@@ -72,7 +72,7 @@ def help(bot, update):
         )
     else:
         update.message.reply_text(
-            'SNUE봇의 모든 기능을 이용하고 계시네요!\n'
+            'CREDIT_SNUE봇의 모든 기능을 이용하고 계시네요!\n'
             '감사합니다 :)'
         )
 
@@ -83,7 +83,7 @@ def notice(bot, update):
     notice = Option.objects.get(name='notice')
     if notice in guest.using_options:
         update.message.reply_text(
-            '이미 SNUE 공지 알림에 등록되어 있습니다!\n'
+            '이미 CREDIT_SNUE 공지 알림에 등록되어 있습니다!\n'
             '새로운 공지사항이 오는 경우 즉시 알려드리고 있습니다 :)\n'
             '만약 알림을 받기를 원하지 않으신다면 [/notice_stop]을 터치해주세요.'
         )
@@ -93,7 +93,7 @@ def notice(bot, update):
         guest.options.add(notice)
         guest.save()
         update.message.reply_text(
-            'SNUE 공지 알림이 성공적으로 등록되었습니다!\n'
+            'CREDIT_SNUE 공지 알림이 성공적으로 등록되었습니다!\n'
             '이시간 이후로 새로운 공지사항이 오는 경우 즉시 알려드리겠습니다 :)\n'
             '만약 알림을 받기를 원하지 않으신다면 [/notice_stop]을 터치해주세요.'
         )
@@ -110,12 +110,12 @@ def notice_stop(bot, update):
         guest.options.remove(notice)
         guest.save()
         update.message.reply_text(
-            'SNUE 공지 알람을 끄셨습니다.\n'
+            'CREDIT_SNUE 공지 알람을 끄셨습니다.\n'
             '만약 알림을 다시 받으시려면 [/notice]를 터치해주세요.'
         )
     else:
         update.message.reply_text(
-            '아직 SNUE 공지 알람에 등록되어있지 않습니다.\n'
+            '아직 CREDIT_SNUE 공지 알람에 등록되어있지 않습니다.\n'
             '더 상세한 안내가 필요하시면 [/help]를 입력해주세요!'
         )
 
