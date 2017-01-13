@@ -28,11 +28,11 @@ if os.path.exists(os.path.join(BASE_DIR, "envs.json")):
             error_msg = "set env var error at {}".format(setting)
             print(error_msg)
 
-    TELEGRAM_TOKEN = get_env('TELEGRAM_TOKEN', envs)
+    TELEGRAM_TOKEN = get_env('301550425:AAEJNObvQduPYMbnGq9')
   
 
 else:
-    TELEGRAM_TOKEN = os.environ.get('TELEGRAM_TOKEN', '')
+    TELEGRAM_TOKEN = os.environ.get('301550425:AAEJNObvQduPYMbnGq9')
 
 
 
