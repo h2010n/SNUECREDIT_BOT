@@ -6,18 +6,10 @@ def _get_contents(usr_id, usr_pw):
     # Base Setup
     driver = webdriver.PhantomJS(executable_path='phantomjs', service_args=['--ignore-ssl-errors=true'])
     driver.implicitly_wait(1)
-    base_url = 'https://portal.snue.ac.kr/'
-
-    # Login
-    driver.get(base_url + "enview/user/login.face")
-    driver.find_element_by_name("userId").clear()
-    driver.find_element_by_name("userId").send_keys(usr_id)
-    driver.find_element_by_name("password").clear()
-    driver.find_element_by_name("password").send_keys(usr_pw)
-    driver.find_element_by_xpath('//*[@id="btn_login"]/input').click()
+    base_url = 'http://credit.snue.ac.kr/sub/board.snue?boardId=credit_notice&mid=42'
 
     # Get HTML
-    driver.get(base_url + 'enview/snue/SNUE06.face?cutLength=200&pageSize=100')
+    driver.get(base_url)
     titles = driver.find_elements_by_xpath('/html/body/div/ul/li/a')
     dates = driver.find_elements_by_xpath('/html/body/div/ul/li/span')
 
