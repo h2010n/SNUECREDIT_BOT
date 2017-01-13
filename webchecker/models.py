@@ -51,37 +51,3 @@ class Option(TimeStampModel):
         return self.objects.prefetch_related('guest_set__using_options').all()
 
 
-class CafeMenuInfo(TimeStampModel):
-    date = models.DateField()
-    menu = models.TextField()
-
-    def set_menu(self, x):
-        self.menu = json.dumps(x)
-
-    def get_menu(self):
-        return json.loads(self.menu)
-
-    def __str__(self):
-        return str(self.date)
-
-
-class CafeMealTime(TimeStampModel):
-    MEAL_TIMES = (
-        ('morning', 'morning'),
-        ('lunch', 'lunch'),
-        ('dinner', 'dinner'),
-    )
-
-    meal = models.CharField(max_length=20, choices=MEAL_TIMES, unique=True)
-
-    def __str__(self):
-        return self.meal
-
-
-class CustomNotice(TimeStampModel):
-    title = models.CharField(max_length=200)
-    content = models.TextField()
-
-    def __str__(self):
-        return self.title
-
